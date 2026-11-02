@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply m-0 min-w-[320px] bg-white font-sans text-purelis-ink;
+  }
+
+  ::selection {
+    @apply bg-purelis-sage-bg text-purelis-forest;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid theme('colors.purelis.leaf');
+    outline-offset: 3px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-purelis-muted;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .store-container {
+    @apply mx-auto w-full max-w-[1280px] px-5 md:px-8;
+  }
+
+  .btn-purelis {
+    @apply inline-flex items-center justify-center gap-2 bg-purelis-forest px-7 py-3.5 font-display text-[11px] font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-purelis-forest-deep focus-visible:outline-purelis-forest disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-purelis-light {
+    @apply inline-flex items-center justify-center gap-2 border border-purelis-line bg-white px-7 py-3.5 font-display text-[11px] font-semibold uppercase tracking-[0.08em] text-purelis-ink transition hover:border-purelis-forest hover:text-purelis-forest disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .eyebrow-purelis {
+    @apply font-display text-[10px] font-semibold uppercase tracking-[0.18em] text-purelis-leaf;
+  }
+
+  .title-purelis {
+    @apply font-serif text-2xl font-semibold uppercase tracking-[0.04em] text-purelis-ink md:text-[28px];
+  }
+
+  .card-calm {
+    @apply rounded-card border border-white/60 bg-calm-ivory p-6 shadow-card;
+  }
+
+  .btn-calm {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-full bg-calm-sage px-7 text-sm font-medium text-white shadow-raised transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-55;
+  }
+
+  .btn-calm-secondary {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-full border border-calm-sand bg-calm-ivory px-7 text-sm font-medium text-calm-ink transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-55;
+  }
+
+  .input-calm {
+    @apply h-12 w-full rounded-2xl border border-calm-sand/70 bg-white/80 px-4 text-sm text-calm-ink transition placeholder:text-calm-muted focus:border-calm-sage focus:outline-none focus:ring-2 focus:ring-calm-sage/15 disabled:opacity-60;
+  }
+
+  .label-calm {
+    @apply mb-2 block text-[11px] font-semibold uppercase tracking-[0.16em] text-calm-body;
+  }
+
+  .admin-shell-bg {
+    background:
+      radial-gradient(circle at 8% 2%, rgba(167, 184, 167, 0.24), transparent 32%),
+      radial-gradient(circle at 95% 92%, rgba(201, 189, 175, 0.22), transparent 36%),
+      #f8f3ed;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-xl bg-calm-canvas/80;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grain-overlay {
+    background-image: radial-gradient(rgba(31, 74, 18, 0.13) 0.6px, transparent 0.6px);
+    background-size: 7px 7px;
+  }
+}
